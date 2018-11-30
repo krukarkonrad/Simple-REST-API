@@ -45,7 +45,7 @@ You should get your version of Node.js, my respond e.g.:
 
     v10.13.0
 
-Make a root folder and drop here all files and folders from repo.
+Make a root folder and drop here all files and folders from repo/root.
 
 Folder already have required dependencies installed, you can see it in **package.json** file:
 
