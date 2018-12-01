@@ -117,7 +117,7 @@ After running **Posteman**, DataBase should looks like:
 Now we can easily view our data.
  
 
-##HTTP Calls
+## HTTP Calls
 
 **id** that we are using in those links is created after note is saved.
 
@@ -126,7 +126,7 @@ Now we can easily view our data.
 -----
 
 
-####GET
+#### GET
 
     /api/thing
 Returns all "default" notes (unmodified, not deleted or latest versions).
@@ -211,7 +211,7 @@ Returns:
     }
 
 ----------
-####POST
+#### POST
 
     /api/thing
 
@@ -236,7 +236,7 @@ Creates a new note and returns it:
 
 
 ----------
-####PUT (UPDATE)
+#### PUT (UPDATE)
 
     /api/thing/:id
 
@@ -271,7 +271,7 @@ Updates particular note and returns it:
 
 --------
 
-####DELETE
+#### DELETE
 
     /api/thing/:id
 
