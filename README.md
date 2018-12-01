@@ -119,7 +119,7 @@ Now we can easily view our data.
 
 ## HTTP Calls
 
-**id** that we are using in those links is created after note is saved.
+**id** that we are using in those links is created after note is created.
 
 **InsideID** (in Deleted/Previous versions notes) allows Us to refer to orignal **id** .
 
