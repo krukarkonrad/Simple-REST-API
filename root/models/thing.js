@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//creating 'thing' Schema & model
 const ThingSchema = new Schema({
 
     Title:{
@@ -20,7 +19,7 @@ const ThingSchema = new Schema({
 
     Modified:{
       type: Date, default: null
-    },
+    }
 
 });
 
