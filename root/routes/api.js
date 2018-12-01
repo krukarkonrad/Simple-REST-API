@@ -3,7 +3,7 @@ const router = express.Router();
 const Thing = require('../models/thing');
 const UpdateThing = require('../models/updateThing');
 const DeletedThing = require('../models/deletedThing');
-var version
+var version;
 
 function writeUpdateHistory(writeHistoryThing, version){
   var updateThing = new UpdateThing();
