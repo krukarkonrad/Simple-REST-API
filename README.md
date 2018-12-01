@@ -71,6 +71,10 @@ Run application by:
 
     >node index
 
+The **CMD** should respond:
+
+    now listening
+
 
 ## Testing ##
 
@@ -97,7 +101,7 @@ And Click **"Run"**
 
 
 -----------
-### Robo 3t###
+### Robo 3t
 
 We can view our dataebase in **Robo 3t** application.
 
@@ -112,3 +116,172 @@ After running **Posteman**, DataBase should looks like:
 
 Now we can easily view our data.
  
+
+##HTTP Calls
+
+**id** that we are using in those links is created after note is saved.
+
+**InsideID** (in Deleted/Previous versions notes) allows Us to connect to main Collection.
+
+-----
+
+
+####GET
+
+    /api/thing
+Returns all "default" notes (unmodified, not deleted or latest versions).
+
+----------
+
+    /api/thing/:id
+Returns particular note (unmodified, not deleted or latest version).
+
+
+    /api/thing/5c02587905f3a931bc62b99e
+Returns:
+
+    {
+	    "Modified": "2018-12-01T09:51:14.341Z",
+	    "_id": "5c02587905f3a931bc62b99e",
+	    "Title": "Update2",
+	    "Content": "Update1",
+	    "Created": "2018-12-01T09:46:33.449Z",
+	    "__v": 0
+    }
+    
+
+----------
+
+    /api/updated
+Returns previous versions of all updated notes.
+
+----------
+
+    /api/updated/:id
+Returns previous versions of particular note.
+
+    /api/updated/5c02587905f3a931bc62b99e
+Returns:
+
+    [
+	    {
+		    "_id": "5c02592505f3a931bc62b99f",
+		    "Updated": "2018-12-01T09:49:25.749Z",
+		    "Version": 1,
+		    "Title": "Title1",
+		    "Content": "Content1",
+		    "InsideID": "5c02587905f3a931bc62b99e",
+		    "__v": 0
+	    },
+	    {
+		    "_id": "5c02599205f3a931bc62b9a0",
+		    "Updated": "2018-12-01T09:51:14.344Z",
+		    "Version": 2,
+		    "Title": "Update1",
+		    "Content": "Update1",
+		    "InsideID": "5c02587905f3a931bc62b99e",
+		    "__v": 0
+	    }
+    ]
+
+
+----------
+
+    /api/deleted
+Returns deleted notes.
+
+----------
+
+    /api/deleted/:id
+
+Returns particular deleted note.
+
+    /api/updated/5c025a5d05f3a931bc62b9a1
+Returns:
+
+    {
+	    "_id": "5c025a6105f3a931bc62b9a2",
+	    "Deleted": "2018-12-01T09:54:41.803Z",
+	    "InsideID": "5c025a5d05f3a931bc62b9a1",
+	    "Title": "Title2",
+	    "Content": "Content2",
+	    "Created": "2018-12-01T09:54:37.902Z",
+	    "Modified": null,
+	    "__v": 0
+    }
+
+----------
+####POST
+
+    /api/thing
+
+Requires Body JSON code:
+    
+    {
+    	"Title" : "Title1",
+    	"Content" : "Content1"
+    }
+
+Creates a new note and returns it:
+
+    {
+	    "Modified": null,
+	    "_id": "5c02587905f3a931bc62b99e",
+	    "Title": "Title1",
+	    "Content": "Content1",
+	    "Created": "2018-12-01T09:46:33.449Z",
+	    "__v": 0
+    }
+
+
+
+----------
+####PUT (UPDATE)
+
+    /api/thing/:id
+
+Requires Body JSON code:
+    
+    {
+    	"Title" : "Update Title",
+    	"Content" : "Update Content"
+    }
+
+or
+
+    {
+    	"Title" : "Update Title"
+    }
+
+or
+
+    {
+    	"Content" : "Update Content"
+    }
+Updates particular note and returns it:
+
+    {
+	    "Modified": "2018-12-01T09:49:25.747Z",
+	    "_id": "5c02587905f3a931bc62b99e",
+	    "Title": "Update1",
+	    "Content": "Update1",
+	    "Created": "2018-12-01T09:46:33.449Z",
+	    "__v": 0
+    }
+
+--------
+
+####DELETE
+
+    /api/thing/:id
+
+Deletes particular note and returns it:
+
+    {
+	    "Modified": null,
+	    "_id": "5c025a5d05f3a931bc62b9a1",
+	    "Title": "Title2",
+	    "Content": "Content2",
+	    "Created": "2018-12-01T09:54:37.902Z",
+	    "__v": 0
+    }
