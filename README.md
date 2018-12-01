@@ -47,7 +47,7 @@ You should get your version of Node.js, my respond e.g.:
 
 Make a root folder and drop here all files and folders from repo/root.
 
-Folder already have required dependencies installed, you can see it in **package.json** file:
+Folder already has required dependencies installed, you can see it in **package.json** file:
 
 
     "dependencies": {
@@ -110,7 +110,7 @@ Run it and Connect  to our LocalHost:
 ![](https://i.gyazo.com/493dc1802664ba58d7284d83efa3caf2.png)
 
 
-After running **Posteman**, DataBase should looks like:
+After running **Posteman**, DataBase should look like:
 
 ![](https://i.gyazo.com/b066725db4f8609b2eca0e6fb09c4e97.png)
 
