@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//creating 'thing' Schema & model
 const DeletedThingSchema = new Schema({
 
     InsideID:{
