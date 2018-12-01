@@ -22,6 +22,7 @@ function writeDeletedThing(writeDeletedThing){
   deletedThing.Content  = writeDeletedThing.Content;
   deletedThing.Created = writeDeletedThing.Created;
   deletedThing.Modified = writeDeletedThing.Modified;
+  
   DeletedThing.create(deletedThing);
 }
 
@@ -54,7 +55,7 @@ router.put('/thing/:id', function(req, res, next){
     Thing.findByIdAndUpdate({_id: req.params.id}, req.body).then(function(){
 
         Thing.findByIdAndUpdate({_id: req.params.id}, {$set: {Modified: Date.now()}}, { new: true }, function (err, thing) {
-        if (err) return handleError(err);
+            if (err) return handleError(err);
         });
 
         Thing.findOne({_id: req.params.id}).then(function(thing){
